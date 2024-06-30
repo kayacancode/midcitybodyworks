@@ -65,13 +65,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="flex flex-col items-center p-6">
-      <section id="home" className="w-full bg-white p-6 rounded-lg shadow-md mt-6 text-center text-[#800001]">
-  <div className="flex justify-center">
-    <Image src="/logo1.png" alt="Placeholder Image 1" width={300} height={300} className="rounded" />
-  </div>
-  <p className="italic">Mid-City Body Works has been family owned and operated since 1979</p>
-</section>
-
+        <section id="home" className="w-full bg-white p-6 rounded-lg shadow-md mt-6 text-center text-[#800001]">
+          <div className="">
+          <Image src="/logo1.png" alt="Placeholder Image 1" width = {200} height={200} className="rounded" />
+</div>
+          <p className="italic">Mid-City Body Works has been family owned and operated since 1979</p>
+        </section>
 
         {/* Our Services Section */}
         <section className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md mt-6">
