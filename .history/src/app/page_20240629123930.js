@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from 'react';
-import Head from "next/head";
+
 export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
@@ -24,7 +24,7 @@ export default function Home() {
     e.preventDefault();
 
     // Send form data to Formspree
-    fetch('https://formspree.io/f/xblrjrng', {
+    fetch('https://formspree.io/YOUR_FORMSPREE_ENDPOINT', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -46,28 +46,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-            <Head>
-        <title>Mid-City Body Works | Memphis Collision Repair Body Shop</title>
-        <meta name="description" content="Mid-City Body Works offers professional auto body and paint repair, frame and unibody correction, theft restoration, painting and tape pin-striping, suspension repair, and glass replacement services in Memphis. Book your appointment today!" />
-        <meta name="keywords" content="Memphis collision repair, auto body shop, paint repair, frame correction, theft restoration, pin-striping, suspension repair, glass replacement, Mid-City Body Works" />
-        <meta name="author" content="Mid-City Body Works" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Mid-City Body Works | Memphis Collision Repair Body Shop" />
-        <meta property="og:description" content="Mid-City Body Works offers professional auto body and paint repair, frame and unibody correction, theft restoration, painting and tape pin-striping, suspension repair, and glass replacement services in Memphis. Book your appointment today!" />
-        <meta property="og:url" content="https://www.midcitybodyworks.com" />
-        <meta property="og:type" content="website" />
-      </Head>
       {/* Navigation Bar */}
       <header className="bg-[#800001] text-white w-full py-4 flex justify-between items-center px-6">
         <div className="text-2xl font-bold">Mid-City Body Works</div>
-     
+        <nav>
+          <ul className="flex space-x-6">
+            <li><a href="#home" className="hover:underline">Home</a></li>
+            <li><a href="#contact" className="hover:underline">Contact</a></li>
+            <li><a href="#appointment" className="hover:underline">Book Appointment</a></li>
+          </ul>
+        </nav>
       </header>
 
       {/* Hero Section */}
       <main className="flex flex-col items-center p-6">
-        <section id="home" className="w-full bg-white p-6 rounded-lg shadow-md mt-6 text-center text-[#800001]">
+        <section id="home" className="w-full bg-white p-6 rounded-lg shadow-md mt-6 text-center ext-[#800001]">
           <h1 className="text-4xl font-bold text-[#800001]">Mid-City Body Works</h1>
-          <p className="italic">Mid-City Body Works has been family owned and operated since 1979</p>
+          <p>Mid-City Body Works has been family owned and operated since 1979</p>
         </section>
 
         {/* Our Services Section */}
@@ -143,7 +138,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="appointment" className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md mt-6 text-[#800001]">
+      </main>
+      <section id="appointment" className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md mt-6">
           <h2 className="text-2xl font-semibold mb-4 text-[#800001] text-center">Book Appointment</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -202,7 +198,7 @@ export default function Home() {
               </select>
             </div>
             <div>
-            <label htmlFor="vechiclevin" className="block text-sm font-medium text-gray-700">Vehicle Vin Number</label>
+            <label htmlFor="vechiclevin" className="block text-sm font-medium text-gray-700">Vechile Vin Number</label>
               <input
                 type="vechiclevin"
                 name="vechiclevin"
@@ -258,8 +254,6 @@ export default function Home() {
             </div>
           </form>
         </section>
-      </main>
-     
       {/* Footer */}
       <footer className="bg-gray-800 text-white w-full py-6 mt-6">
         <div className="text-center">

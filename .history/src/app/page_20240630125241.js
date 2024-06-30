@@ -60,7 +60,13 @@ export default function Home() {
       {/* Navigation Bar */}
       <header className="bg-[#800001] text-white w-full py-4 flex justify-between items-center px-6">
         <div className="text-2xl font-bold">Mid-City Body Works</div>
-     
+        <nav>
+          {/* <ul className="flex space-x-6">
+            <li><a href="#home" className="hover:underline">Home</a></li>
+            <li><a href="#services" className="hover:underline">Book Appointment</a></li>
+            <li><a href="#appointment" className="hover:underline">Book Appointment</a></li>
+          </ul> */}
+        </nav>
       </header>
 
       {/* Hero Section */}

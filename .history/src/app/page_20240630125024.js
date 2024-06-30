@@ -54,13 +54,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:title" content="Mid-City Body Works | Memphis Collision Repair Body Shop" />
         <meta property="og:description" content="Mid-City Body Works offers professional auto body and paint repair, frame and unibody correction, theft restoration, painting and tape pin-striping, suspension repair, and glass replacement services in Memphis. Book your appointment today!" />
+        <meta property="og:image" content="/path/to/your-image.jpg" />
         <meta property="og:url" content="https://www.midcitybodyworks.com" />
         <meta property="og:type" content="website" />
       </Head>
       {/* Navigation Bar */}
       <header className="bg-[#800001] text-white w-full py-4 flex justify-between items-center px-6">
         <div className="text-2xl font-bold">Mid-City Body Works</div>
-     
+        <nav>
+          {/* <ul className="flex space-x-6">
+            <li><a href="#home" className="hover:underline">Home</a></li>
+            <li><a href="#services" className="hover:underline">Book Appointment</a></li>
+            <li><a href="#appointment" className="hover:underline">Book Appointment</a></li>
+          </ul> */}
+        </nav>
       </header>
 
       {/* Hero Section */}

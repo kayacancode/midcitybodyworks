@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from 'react';
-import Head from "next/head";
+
 export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
@@ -46,21 +46,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-            <Head>
-        <title>Mid-City Body Works | Memphis Collision Repair Body Shop</title>
-        <meta name="description" content="Mid-City Body Works offers professional auto body and paint repair, frame and unibody correction, theft restoration, painting and tape pin-striping, suspension repair, and glass replacement services in Memphis. Book your appointment today!" />
-        <meta name="keywords" content="Memphis collision repair, auto body shop, paint repair, frame correction, theft restoration, pin-striping, suspension repair, glass replacement, Mid-City Body Works" />
-        <meta name="author" content="Mid-City Body Works" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Mid-City Body Works | Memphis Collision Repair Body Shop" />
-        <meta property="og:description" content="Mid-City Body Works offers professional auto body and paint repair, frame and unibody correction, theft restoration, painting and tape pin-striping, suspension repair, and glass replacement services in Memphis. Book your appointment today!" />
-        <meta property="og:url" content="https://www.midcitybodyworks.com" />
-        <meta property="og:type" content="website" />
-      </Head>
       {/* Navigation Bar */}
       <header className="bg-[#800001] text-white w-full py-4 flex justify-between items-center px-6">
         <div className="text-2xl font-bold">Mid-City Body Works</div>
-     
+        <nav>
+          {/* <ul className="flex space-x-6">
+            <li><a href="#home" className="hover:underline">Home</a></li>
+            <li><a href="#services" className="hover:underline">Book Appointment</a></li>
+            <li><a href="#appointment" className="hover:underline">Book Appointment</a></li>
+          </ul> */}
+        </nav>
       </header>
 
       {/* Hero Section */}
@@ -202,7 +197,7 @@ export default function Home() {
               </select>
             </div>
             <div>
-            <label htmlFor="vechiclevin" className="block text-sm font-medium text-gray-700">Vehicle Vin Number</label>
+            <label htmlFor="vechiclevin" className="block text-sm font-medium text-gray-700">Vechile Vin Number</label>
               <input
                 type="vechiclevin"
                 name="vechiclevin"
