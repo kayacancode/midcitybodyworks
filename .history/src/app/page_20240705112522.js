@@ -15,53 +15,10 @@ export default function Home() {
     licenseplate:'',
 
   });
-  const [errors, setErrors] = useState({
-    email: '',
-    vechiclevin: '',
-    licenseplate: ''
-  });
 
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData({
-    ...formData,
-    [name]: value
-  });
-
-  // Validation
-  let emailError = '';
-  let vinError = '';
-  let licensePlateError = '';
-
-  if (name === 'email') {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(value)) {
-      emailError = 'Invalid email address';
-    }
-  }
-
-  if (name === 'vechiclevin') {
-    const vinPattern = /^[A-HJ-NPR-Z0-9]{17}$/;
-    if (!vinPattern.test(value)) {
-      vinError = 'Invalid VIN number';
-    }
-  }
-
-  if (name === 'licenseplate') {
-    const licensePlatePattern = /^[A-Z0-9-]{1,8}$/;
-    if (!licensePlatePattern.test(value)) {
-      licensePlateError = 'Invalid license plate';
-    }
-  }
-
-  setErrors({
-    ...errors,
-    email: emailError,
-    vechiclevin: vinError,
-    licenseplate: licensePlateError
-  });
-};
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -189,127 +146,121 @@ const handleChange = (e) => {
             </div>
           </div>
         </section>
-
-        {/*  submit form Section */}
         <section id="appointment" className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md mt-6 text-[#800001]">
-  <h2 className="text-2xl font-semibold mb-4 text-[#800001] text-center">Book Appointment</h2>
-  <form onSubmit={handleSubmit} className="space-y-4">
-    <div>
-      <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      />
-    </div>
-    <div>
-      <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      />
-      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-    </div>
-    <div>
-      <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
-      <input
-        type="tel"
-        name="phone"
-        id="phone"
-        value={formData.phone}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      />
-    </div>
-    <div>
-      <label htmlFor="service" className="block text-sm font-medium text-gray-700">Service</label>
-      <select
-        name="service"
-        id="service"
-        value={formData.service}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
-      >
-        <option value="">Select a service</option>
-        <option value="Auto Body and Paint Repair">Auto Body and Paint Repair</option>
-        <option value="Frame and Unibody Correction">Frame and Unibody Correction</option>
-        <option value="Theft Restoration">Theft Restoration</option>
-        <option value="Painting and Tape Pin-striping">Painting and Tape Pin-striping</option>
-        <option value="Suspension Repair">Suspension Repair</option>
-        <option value="Glass Replacement">Glass Replacement</option>
-      </select>
-    </div>
-    <div>
-      <label htmlFor="vechiclevin" className="block text-sm font-medium text-gray-700">Vehicle Vin Number</label>
-      <input
-        type="text"
-        name="vechiclevin"
-        id="vechiclevin"
-        value={formData.vechiclevin}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      />
-      {errors.vechiclevin && <p className="text-red-500 text-sm mt-1">{errors.vechiclevin}</p>}
-    </div>
-    <div>
-      <label htmlFor="licenseplate" className="block text-sm font-medium text-gray-700">License Plate</label>
-      <input
-        type="text"
-        name="licenseplate"
-        id="licenseplate"
-        value={formData.licenseplate}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      />
-      {errors.licenseplate && <p className="text-red-500 text-sm mt-1">{errors.licenseplate}</p>}
-    </div>
-    <div>
-      <label htmlFor="date" className="block text-sm font-medium text-gray-700">Preferred Date</label>
-      <input
-        type="date"
-        name="date"
-        id="date"
-        value={formData.date}
-        onChange={handleChange}
-        required
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      />
-    </div>
-    <div>
-      <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-      <textarea
-        name="message"
-        id="message"
-        value={formData.message}
-        onChange={handleChange}
-        rows="4"
-        className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-      ></textarea>
-    </div>
-    <div className="text-center">
-      <button
-        type="submit"
-        className="bg-black text-white px-4 py-2 rounded hover:bg-[#800001]"
-      >
-        Submit
-      </button>
-    </div>
-  </form>
-</section>
-
+          <h2 className="text-2xl font-semibold mb-4 text-[#800001] text-center">Book Appointment</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label htmlFor="service" className="block text-sm font-medium text-gray-700">Service</label>
+              <select
+                name="service"
+                id="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
+              >
+                <option value="">Select a service</option>
+                <option value="Auto Body and Paint Repair">Auto Body and Paint Repair</option>
+                <option value="Frame and Unibody Correction">Frame and Unibody Correction</option>
+                <option value="Theft Restoration">Theft Restoration</option>
+                <option value="Painting and Tape Pin-striping">Painting and Tape Pin-striping</option>
+                <option value="Suspension Repair">Suspension Repair</option>
+                <option value="Glass Replacement">Glass Replacement</option>
+              </select>
+            </div>
+            <div>
+            <label htmlFor="vechiclevin" className="block text-sm font-medium text-gray-700">Vehicle Vin Number</label>
+              <input
+                type="vechiclevin"
+                name="vechiclevin"
+                id="vechiclevin"
+                value={formData.vechiclevin}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+            <label htmlFor="licenseplate" className="block text-sm font-medium text-gray-700">License Plate</label>
+              <input
+                type="licenseplate"
+                name="licenseplate"
+                id="licenseplate"
+                value={formData.licenseplate}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label htmlFor="date" className="block text-sm font-medium text-gray-700">Preferred Date</label>
+              <input
+                type="date"
+                name="date"
+                id="date"
+                value={formData.date}
+                onChange={handleChange}
+                required
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+              <textarea
+                name="message"
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="4"
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+              ></textarea>
+            </div>
+            <div className="text-center">
+              <button
+                type="submit"
+                className="bg-black text-white px-4 py-2 rounded hover:bg-[#800001]"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </section>
       </main>
      
       {/* Footer */}
